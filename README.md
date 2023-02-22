@@ -14,3 +14,12 @@ Emulate DS1 CAN Websockets
 I only captured one Frame of binary data on the 1st raster group (there are two, for sampling different values at different rates)
 
 However, it would be very easy to capture more and add them if you desire. Just use DevTools to monitor the WebSocket after hitting "start" on the Data tab.
+
+
+## Support
+
+There is none except what I and other community members provide. 
+
+### *DO NOT CONTACT DYNOSPECTRUM FOR SUPPORT*
+
+These apis are not documented and subject to breaking changes at any time.
