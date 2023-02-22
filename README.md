@@ -8,3 +8,9 @@ Emulate DS1 CAN Websockets
 1. Connect to localhost:9997 with a websocketclient
 1. send "ds2start" over the web socket
 1. onMessage in your client will be invoked, the binary version not the text one.
+
+## Limitations
+
+I only captured one Frame of binary data on the 1st raster group (there are two, for sampling different values at different rates)
+
+However, it would be very easy to capture more and add them if you desire. Just use DevTools to monitor the WebSocket after hitting "start" on the Data tab.
