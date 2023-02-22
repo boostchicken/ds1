@@ -7,3 +7,4 @@ Emulate DS1 CAN Websockets
 1. Execute ws.py
 1. Connect to localhost:9997 with a websocketclient
 1. send "ds2start" over the web socket
+1. onMessage in your client will be invoked, the binary version not the text one.
