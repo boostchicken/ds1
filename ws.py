@@ -10,7 +10,7 @@ by = bytes.fromhex("013e04000000000000000001000200009c000a0000000027ff04e0e45a0a
 async def sendCan():
     while True:
        websockets.broadcast(connected, by)
-       time.sleep(100/1000) // You can use this to control the date data is sent 50hz 100hz etc
+       time.sleep(100/1000) # You can use this to control the date data is sent 50hz 100hz etc
 
 # create handler for each connection
 async def handler(websocket, path):
