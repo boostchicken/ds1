@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-logging.basicConfig(level=logging.DEBUG)
+
 import asyncio
 import websockets
 import time
@@ -19,7 +19,7 @@ async def handler(websocket):
         if data == "ds2start":
             connected.add(websocket)
             await websocket.send(monitors)
-            asyncio.create_task(broadcast_messages(web))
+            asyncio.create_task(broadcast_messages())
 
 async def main():
     async with websockets.server.serve(handler, "0.0.0.0", 9997):
