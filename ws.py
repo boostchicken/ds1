@@ -8,11 +8,10 @@ monitors="""[{"var":"refuelled","name":"refuelled(refuelled)","metric_unit":"-",
 connected = set()
 by = bytes.fromhex("013e04000000000000000001000200009c000a0000000027ff04e0e45a0af4ff07e4fff4ffe4ff09d77e947e090c04710b1c14090309008e0651065e0641068a0b1c14090309008e0651065e0641068a065006004f065b065106000010fc0f6380003c801003be000000009210a31000373259329a190000000000000000")
 
-async def sendCan():
+async def broadcast_messages():
     while True:
-       websockets.broadcast(connected, by)
-       time.sleep(10/1000) # You can use this to control the date data is sent 50hz 100hz etc
-
+        await asyncio.sleep(10/1000)
+        await broadcast(by)
 # create handler for each connection
 async def handler(websocket, path):
     while True:
@@ -20,7 +19,7 @@ async def handler(websocket, path):
         if data == "ds2start":
             connected.add(websocket)
             await websocket.send(monitors)
-            asyncio.get_event_loop().create_task(sendCan())
+            await broadcast_messages()
 
         
 
