@@ -11,7 +11,7 @@ by = bytes.fromhex("013e04000000000000000001000200009c000a0000000027ff04e0e45a0a
 async def broadcast_messages():
     while True:
         await asyncio.sleep(10/1000)
-        await broadcast(by)
+        await websockets.broadcast(connected, by)
 # create handler for each connection
 async def handler(websocket, path):
     while True:
@@ -20,8 +20,6 @@ async def handler(websocket, path):
             connected.add(websocket)
             await websocket.send(monitors)
             await broadcast_messages()
-
-        
 
 async def main():
     async with websockets.server.serve(handler, "0.0.0.0", 9997):
